@@ -9,15 +9,17 @@ const DateField = () => {
     const inputDate = e.target.value;
     const onlyNumber = inputDate.replace(/\D/g, "");
 
-    if (isValidDate(onlyNumber) && onlyNumber.length === 8) {
-      return setDate(dayjs(onlyNumber).format("YYYY.MM.DD"));
-    }
     setDate(onlyNumber);
   };
   return (
     <div>
       <div>Date Field</div>
-      <input value={date} type="text" maxLength={8} onChange={handleChange} />
+      <input
+        value={isValidDate(date) ? dayjs(date).format("YYYY.MM.DD") : date}
+        type="text"
+        maxLength={8}
+        onChange={handleChange}
+      />
     </div>
   );
 };
