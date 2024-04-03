@@ -1,3 +1,4 @@
+import DateField from "./components/dateField";
 import Test1 from "./components/test1";
 import Test2_React from "./components/test2/react";
 import Test2_Vanilla from "./components/test2/vanilla";
@@ -8,6 +9,7 @@ const routePaths = [
   "/test2",
   "/test2/vanilla",
   "/test2/react",
+  "/dateField",
 ] as const;
 
 export type ROUTE_PATH = (typeof routePaths)[number];
@@ -30,7 +32,7 @@ export const routes: Record<ROUTE_PATH, ROUTE> = {
     key: "/",
     link: "/",
     name: "root",
-    children: ["/test1", "/test2"],
+    children: ["/test1", "/test2", "/dateField"],
   },
   "/test1": {
     key: "/test1",
@@ -55,6 +57,12 @@ export const routes: Record<ROUTE_PATH, ROUTE> = {
     link: "/test2/react",
     name: "React",
     children: Test2_React,
+  },
+  "/dateField": {
+    key: "/dateField",
+    link: "/dateField",
+    name: "dateField",
+    children: DateField,
   },
 };
 
