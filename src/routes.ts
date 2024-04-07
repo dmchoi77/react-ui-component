@@ -1,3 +1,4 @@
+import Accordions from "./components/accordion";
 import DateField from "./components/dateField";
 import Test1 from "./components/test1";
 import Test2_React from "./components/test2/react";
@@ -10,6 +11,7 @@ const routePaths = [
   "/test2/vanilla",
   "/test2/react",
   "/dateField",
+  "/accordion",
 ] as const;
 
 export type ROUTE_PATH = (typeof routePaths)[number];
@@ -32,7 +34,7 @@ export const routes: Record<ROUTE_PATH, ROUTE> = {
     key: "/",
     link: "/",
     name: "root",
-    children: ["/test1", "/test2", "/dateField"],
+    children: ["/test1", "/test2", "/dateField", "/accordion"],
   },
   "/test1": {
     key: "/test1",
@@ -63,6 +65,12 @@ export const routes: Record<ROUTE_PATH, ROUTE> = {
     link: "/dateField",
     name: "dateField",
     children: DateField,
+  },
+  "/accordion": {
+    key: "/accordion",
+    link: "/accordion",
+    name: "아코디언",
+    children: Accordions,
   },
 };
 
